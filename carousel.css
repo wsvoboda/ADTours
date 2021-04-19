@@ -2,12 +2,16 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+main {
+  margin: auto;
+  max-width: 1000px;
+}
+
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -34,7 +38,6 @@ body {
   height: 32rem;
 }
 
-
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
@@ -48,11 +51,10 @@ body {
 }
 /* rtl:begin:ignore */
 .marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
 /* rtl:end:ignore */
-
 
 /* Featurettes
 ------------------------- */
@@ -66,9 +68,8 @@ body {
   font-weight: 300;
   line-height: 1;
   /* rtl:remove */
-  letter-spacing: -.05rem;
+  letter-spacing: -0.05rem;
 }
-
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
