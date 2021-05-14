@@ -1,0 +1,24 @@
+.main-container {
+  padding-top: 6%;
+}
+
+.main-container h1 {
+  text-align: center;
+}
+
+.main-container h5 {
+  text-align: center;
+}
+
+.tour-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card img {
+  width: 100%;
+  height: 18rem;
+}
