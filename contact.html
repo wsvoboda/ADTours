@@ -9,12 +9,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles/contact.css" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
     <title>Contact Us</title>
   </head>
   <body>
     <header>
       <nav
-        class="navbar navbar-expand-md navbar-light fixed-top bg-transparent"
+        class="navbar navbar-expand-md navbar-light fixed-top bg-white"
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="/"
@@ -58,6 +59,90 @@
         </div>
       </nav>
     </header>
+    </body>
+    <main>
+        <div class="main-container">
+        <h1>Find us on social media or use the form below to send us an email!</h1>
+        <div class="contact-links">
+            <a href=""><img src="./assets/fb.png"/></a>
+            <a href=""><img src="./assets/insta.png"/></a>
+            <a href=""><img src="./assets/twitter.png"/></a>
+            <a class="whatsapp" href=""><img src="./assets/whatsapp.png"/>809-123-4567</a>
+        </div>
+        <div class="contact-form">
+            <h3>Contact Form</h3>
+            <form
+              id="contact-form"
+              class="col-sm-6 col-md-offset-1 scrollimation fade-left"
+              action="contact.php"
+              method="post"
+              novalidate
+            >
+              <div class="form-group">
+                <div class="controls">
+                  <input
+                    id="contact-name"
+                    name="contactName"
+                    class="form-control requiredField"
+                    type="text"
+                    data-error-empty="is required"
+                  />
+                  <label class="control-label" for="contact-name">Name</label>
+                </div>
+              </div>
+              <!-- End name input -->
+
+              <div class="form-group">
+                <div class="controls">
+                  <input
+                    id="contact-mail"
+                    name="email"
+                    class="form-control requiredField"
+                    type="email"
+                    data-error-empty="is required"
+                    data-error-invalid="is invalid"
+                  />
+                  <label class="control-label" for="contact-mail">Email</label>
+                </div>
+              </div>
+              <!-- End email input -->
+
+              <div class="form-group">
+                <div class="controls">
+                  <textarea
+                    id="contact-message"
+                    name="comments"
+                    class="form-control requiredField"
+                    rows="6"
+                    data-error-empty="is required"
+                  ></textarea>
+                  <label class="control-label" for="contact-message"
+                    >Message</label
+                  >
+                </div>
+              </div>
+              <!-- End textarea -->
+
+              <button
+                name="submit"
+                type="submit"
+                class="btn btn-primary"
+                data-error-message="Please fill the required fields"
+                data-sending-message="Sending Message"
+                data-ok-message="Your Message has been sent!"
+              >
+                Send It
+              </button>
+              <input
+                type="hidden"
+                name="submitted"
+                id="submitted"
+                value="true"
+              />
+            </form>
+        </div>
+    </div>
+    </main>
   </body>
   <script>
     src =
