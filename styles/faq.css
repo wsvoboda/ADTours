@@ -12,6 +12,14 @@ nav {
   font-family: "Barlow", sans-serif !important;
 }
 
+.contactus {
+  text-align: center;
+}
+
+.contactus a {
+  text-decoration: none;
+}
+
 .title {
   text-align: center;
 }
