@@ -1,5 +1,10 @@
+nav {
+  font-family: "Barlow", sans-serif !important;
+}
+
 .main-container {
   padding-top: 6%;
+  font-family: "Barlow", sans-serif !important;
 }
 
 .main-container h1 {

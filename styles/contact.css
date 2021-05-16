@@ -1,3 +1,7 @@
+nav {
+  font-family: "Barlow", sans-serif !important;
+}
+
 .nav-link {
   text-shadow: 2px 2px 5px white !important;
   font-size: 18px;
@@ -6,6 +10,7 @@
 .main-container {
   padding-top: 6%;
   text-align: center;
+  font-family: "Barlow", sans-serif !important;
 }
 
 .contact-form {
