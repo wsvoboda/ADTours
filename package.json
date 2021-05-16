@@ -1,0 +1,27 @@
+{
+  "name": "adtours",
+  "version": "1.0.0",
+  "description": "Creating full-stack tour company website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsvoboda/ADTours.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wsvoboda/ADTours/issues"
+  },
+  "homepage": "https://github.com/wsvoboda/ADTours#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^1.11.13",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-es6-template-engine": "^2.2.3",
+    "express-session": "^1.17.1",
+    "pg": "^8.6.0"
+  }
+}
