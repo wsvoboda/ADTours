@@ -79,18 +79,17 @@
             <form
               id="contact-form"
               class="col-sm-6 col-md-offset-1 scrollimation fade-left"
-              action="contact.php"
+              action="/contact"
               method="post"
-              novalidate
             >
               <div class="form-group">
                 <div class="controls">
                   <input
                     id="contact-name"
-                    name="contactName"
+                    name="name"
                     class="form-control requiredField"
                     type="text"
-                    data-error-empty="is required"
+                    required
                   />
                   <label class="control-label" for="contact-name">Name</label>
                 </div>
@@ -104,8 +103,7 @@
                     name="email"
                     class="form-control requiredField"
                     type="email"
-                    data-error-empty="is required"
-                    data-error-invalid="is invalid"
+                    required
                   />
                   <label class="control-label" for="contact-mail">Email</label>
                 </div>
@@ -116,10 +114,11 @@
                 <div class="controls">
                   <textarea
                     id="contact-message"
-                    name="comments"
+                    name="message"
                     class="form-control requiredField"
                     rows="6"
                     data-error-empty="is required"
+                    required
                   ></textarea>
                   <label class="control-label" for="contact-message"
                     >Message</label
@@ -132,9 +131,6 @@
                 name="submit"
                 type="submit"
                 class="btn btn-primary"
-                data-error-message="Please fill the required fields"
-                data-sending-message="Sending Message"
-                data-ok-message="Your Message has been sent!"
               >
                 Send It
               </button>
@@ -145,6 +141,7 @@
                 value="true"
               />
             </form>
+            <h6>${feedback}</h6>
         </div>
     </div>
     </main>

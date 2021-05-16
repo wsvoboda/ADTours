@@ -46,7 +46,19 @@ app.get("/faq", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact");
+  res.render("contact", {
+    locals: { feedback: "" },
+  });
+});
+
+app.post("/contact", async (req, res) => {
+  const { name, email, message } = req.body;
+  const { data, error } = await supabase
+    .from("Comments")
+    .insert([{ name: name, email: email, message: message }]);
+  res.render("contact", {
+    locals: { feedback: "Your message has been sent!" },
+  });
 });
 
 app.listen(PORT, () => {
