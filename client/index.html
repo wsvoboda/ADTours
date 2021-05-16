@@ -102,6 +102,9 @@
                 <a class="nav-link" href="/contact" tabindex="-1">Contact</a>
               </li>
             </ul>
+            <a class="nav-link" href="/cart"
+              ><img src="assets/cart.png" height="22px" width="22px"
+            /></a>
           </div>
         </div>
       </nav>
@@ -328,7 +331,7 @@
         return cookieValue;
       };
 
-      function uuidv4() {
+      const uuidv4 = () => {
         return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
           /[xy]/g,
           function (c) {
@@ -337,7 +340,7 @@
             return v.toString(16);
           }
         );
-      }
+      };
 
       let device = getCookie("device");
 

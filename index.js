@@ -61,6 +61,10 @@ app.post("/contact", async (req, res) => {
   });
 });
 
+app.get("/cart", (req, res) => {
+  res.render("cart");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on localhost:${PORT}`);
 });
