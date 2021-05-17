@@ -70,7 +70,7 @@ app.post("/tours", async (req, res) => {
   const deviceID = req.rawHeaders.slice(-1)[0].substr(7, 36);
   const { data, error } = await supabase
     .from("Cart")
-    .insert([{ tourName: name, deviceID: deviceID }]);
+    .insert([{ tourName: name, quantity: "1", deviceID: deviceID }]);
   res.render("tours");
 });
 
