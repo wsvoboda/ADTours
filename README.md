@@ -7,5 +7,4 @@ Creating full-stack tour company website.
 To do:
 - Calculate total of trips in cart
 - Add edit and remove buttons to shopping cart items
-- Add checkout button to shopping cart
 - Host site
