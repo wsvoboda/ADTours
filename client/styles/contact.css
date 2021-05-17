@@ -30,3 +30,8 @@ nav {
   text-decoration: none;
   color: black;
 }
+
+.btn {
+  background-color: #189ab4 !important;
+  border: none;
+}
