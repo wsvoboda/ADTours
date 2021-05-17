@@ -76,7 +76,12 @@
                 the island, lunch is provided.
               </p>
               <br />
-              <a href="/add-to-cart" class="btn btn-primary">Add to Cart</a>
+              <form action="/tours" method="POST">
+                <input type="hidden" name="name" value="Saona Island" />
+                <button type="submit" class="btn btn-primary">
+                  Add to Cart
+                </button>
+              </form>
             </div>
           </div>
         </div>

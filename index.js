@@ -65,6 +65,15 @@ app.get("/cart", (req, res) => {
   res.render("cart");
 });
 
+app.post("/tours", async (req, res) => {
+  const name = req.body.name;
+  const deviceID = req.rawHeaders.slice(-1)[0].substr(7, 36);
+  const { data, error } = await supabase
+    .from("Cart")
+    .insert([{ tourName: name, deviceID: deviceID }]);
+  res.render("tours");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on localhost:${PORT}`);
 });
