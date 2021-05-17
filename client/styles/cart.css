@@ -20,3 +20,16 @@ nav {
   margin: 0 10%;
   text-align: center;
 }
+
+.btn {
+  background-color: #189ab4 !important;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #4db4c9 !important;
+}
+
+.buttondiv {
+  text-align: center;
+}
