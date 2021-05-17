@@ -83,7 +83,11 @@
                 ${tours.map(tour =>`
                 <th scope="row">${tour.tourName}</th>
                 <td>${tour.quantity}</td>
+                <td class="tourPrice">$${tour.price}</td>
               </tr>`).join("")}
+              <tr><th scope="row">Total</th>
+                <td></td>
+              <td id="cartTotal"></td></tr>
             </tbody>
           </table>
         </div>

@@ -67,19 +67,20 @@ app.get("/cart", async (req, res) => {
   const deviceID = req.cookies.device;
   const { data, error } = await supabase
     .from("Cart")
-    .select("tourName, quantity")
+    .select("tourName, quantity, price")
     .match({ deviceID: deviceID })
     .order("tourName", { ascending: true });
-  console.log(data);
   res.render("cart", { locals: { tours: data } });
 });
 
 app.post("/tours", async (req, res) => {
-  const name = req.body.name;
+  const { name, price } = req.body;
   const deviceID = req.cookies.device;
   const { data, error } = await supabase
     .from("Cart")
-    .insert([{ tourName: name, quantity: "1", deviceID: deviceID }]);
+    .insert([
+      { tourName: name, quantity: "1", deviceID: deviceID, price: price },
+    ]);
   res.render("tours");
 });
 
