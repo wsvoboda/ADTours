@@ -93,16 +93,29 @@
         </div>
       </div>
       <div class="buttondiv">
-      <button
+      <button id="checkoutbtn"
                   class="btn btn-primary"
                 >
                   Checkout
                 </button>
             </div>
+            <div class="message"><p class="messagep"></p></div>
     </main>
   </body>
   <script>
     src =
       "https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js";
+  </script>
+  <script>
+    const checkoutButton = document.querySelector("#checkoutbtn")
+    const messageDiv = document.querySelector(".message")
+    const messageParagraph = document.querySelector(".messagep")
+    const checkoutMessage = () => {
+      messageParagraph.innerHTML = "Ability to checkout online is coming soon!"
+    }
+
+    checkoutButton.addEventListener("click", (e) => {
+      checkoutMessage()
+    })
   </script>
 </html>
