@@ -2,7 +2,7 @@
 
 Creating full-stack tour company website. 
 
-🚧 [Under Construction](https://wsvoboda.github.io/ADTours/) 🚧
+🚧 [Under Construction](https://wsvoboda.github.io/ADTours/) *Link does not display site due to implementation of backend* 🚧
 
 To do:
 - Style buttons everywhere
