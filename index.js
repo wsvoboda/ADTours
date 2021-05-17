@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const es6Renderer = require("express-es6-template-engine");
+const cookieParser = require("cookie-parser");
 app.engine("html", es6Renderer);
 
 app.set("views", "client");
 app.set("view engine", "html");
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(
   express.urlencoded({
     extended: true,
@@ -61,13 +63,20 @@ app.post("/contact", async (req, res) => {
   });
 });
 
-app.get("/cart", (req, res) => {
-  res.render("cart");
+app.get("/cart", async (req, res) => {
+  const deviceID = req.cookies.device;
+  const { data, error } = await supabase
+    .from("Cart")
+    .select("tourName, quantity")
+    .match({ deviceID: deviceID })
+    .order("tourName", { ascending: true });
+  console.log(data);
+  res.render("cart", { locals: { tours: data } });
 });
 
 app.post("/tours", async (req, res) => {
   const name = req.body.name;
-  const deviceID = req.rawHeaders.slice(-1)[0].substr(7, 36);
+  const deviceID = req.cookies.device;
   const { data, error } = await supabase
     .from("Cart")
     .insert([{ tourName: name, quantity: "1", deviceID: deviceID }]);
