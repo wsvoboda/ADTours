@@ -70,6 +70,7 @@ app.get("/cart", async (req, res) => {
     .select("tourName, quantity, price")
     .match({ deviceID: deviceID })
     .order("tourName", { ascending: true });
+  console.log(data);
   res.render("cart", { locals: { tours: data } });
 });
 
