@@ -75,7 +75,8 @@
               <tr>
                 <th scope="col">Tour Name</th>
                 <th scope="col">Quantity</th>
-                <th scope="col">Subtotal</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Total</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +84,8 @@
                 ${tours.map(tour =>`
                 <th scope="row">${tour.tourName}</th>
                 <td>${tour.quantity}</td>
-                <td class="tourPrice">$${tour.price}</td>
+                <td class="tourPrice">$${tour.unitPrice}</td>
+                <td class="tourPrice">$${tour.total}</td>
               </tr>`).join("")}
               <tr><th scope="row"></th>
                 <td><strong>Total</strong></td>

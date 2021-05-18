@@ -3,7 +3,7 @@ nav {
 }
 
 .main-container {
-  padding-top: 10vh;
+  padding-top: 13vh;
   font-family: "Barlow", sans-serif !important;
 }
 
@@ -32,6 +32,7 @@ nav {
 .btn {
   background-color: #189ab4 !important;
   border: none;
+  margin-top: 8px;
 }
 
 .btn:hover {

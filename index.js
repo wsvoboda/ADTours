@@ -67,7 +67,7 @@ app.get("/cart", async (req, res) => {
   const deviceID = req.cookies.device;
   const { data, error } = await supabase
     .from("Cart")
-    .select("tourName, quantity, price")
+    .select("tourName, quantity, unitPrice, total")
     .match({ deviceID: deviceID })
     .order("tourName", { ascending: true });
   console.log(data);
@@ -75,13 +75,18 @@ app.get("/cart", async (req, res) => {
 });
 
 app.post("/tours", async (req, res) => {
-  const { name, price } = req.body;
+  const { name, quantity, price } = req.body;
+  const totalPrice = Number(req.body.quantity) * Number(req.body.price);
   const deviceID = req.cookies.device;
-  const { data, error } = await supabase
-    .from("Cart")
-    .insert([
-      { tourName: name, quantity: "1", deviceID: deviceID, price: price },
-    ]);
+  const { data, error } = await supabase.from("Cart").insert([
+    {
+      tourName: name,
+      quantity: quantity,
+      deviceID: deviceID,
+      unitPrice: price,
+      total: totalPrice,
+    },
+  ]);
   res.render("tours");
 });
 
@@ -90,11 +95,11 @@ app.get("/cart-total", async (req, res) => {
   const deviceID = req.cookies.device;
   const { data, error } = await supabase
     .from("Cart")
-    .select("price")
+    .select("unitPrice")
     .match({ deviceID: deviceID });
   if (data) {
     for (price of data) {
-      priceObj.prices += price.price;
+      priceObj.prices += price.unitPrice;
     }
     res.send(priceObj);
   } else {
