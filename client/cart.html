@@ -110,14 +110,20 @@
     const checkoutButton = document.querySelector("#checkoutbtn")
     const messageDiv = document.querySelector(".message")
     const messageParagraph = document.querySelector(".messagep")
+    const tripPrices = []
     const checkoutMessage = () => {
       messageParagraph.innerHTML = "Ability to checkout online is coming soon!"
     }
 
-
+const getPrices = async () => {
+const data = await fetch("localhost:3000/cart-total")
+const json = data.json
+console.log(json)
+}
     
     checkoutButton.addEventListener("click", (e) => {
-      checkoutMessage()
+      getPrices()
+      // checkoutMessage()
     })
   </script>
 </html>

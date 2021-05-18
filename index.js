@@ -85,6 +85,23 @@ app.post("/tours", async (req, res) => {
   res.render("tours");
 });
 
+app.get("/cart-total", async (req, res) => {
+  priceObj = { prices: "" };
+  const deviceID = req.cookies.device;
+  const { data, error } = await supabase
+    .from("Cart")
+    .select("price")
+    .match({ deviceID: deviceID });
+  if (data) {
+    for (price of data) {
+      priceObj.prices += price.price;
+    }
+    res.send(priceObj);
+  } else {
+    console.log(error);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on localhost:${PORT}`);
 });
