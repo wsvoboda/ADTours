@@ -98,6 +98,18 @@ app.post("/delete/:id", async (req, res) => {
   res.redirect("/cart");
 });
 
+app.post("/update/:id", async (req, res) => {
+  const { id } = req.params;
+  const newQuantity = req.body.quantity;
+  console.log(newQuantity);
+  console.log(id);
+  const { data, error } = await supabase
+    .from("Cart")
+    .update({ quantity: newQuantity })
+    .match({ id: id });
+  res.redirect("/cart");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on localhost:${PORT}`);
 });
