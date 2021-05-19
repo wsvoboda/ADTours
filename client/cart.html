@@ -83,14 +83,15 @@
               <tr>
                 ${tours.map(tour =>`
                 <th scope="row">${tour.tourName}</th>
-                <td>${tour.quantity}</td>
+                <td>${tour.quantity}<form action="/delete/${tour.id}" method="POST">
+                <button type="submit">Remove</button></form></td>
                 <td class="unitPrice">$${tour.unitPrice}</td>
                 <td class="totalPrice">$${tour.total}</td>
               </tr>`).join("")}
               
             </tbody>
             
-          </table><p>Grand Total</p><p id="grandTotal">$3.50</p>
+          </table><p><strong>Grand Total</strong></p><p id="grandTotal">$3.50</p>
         </div>
       </div>
       <div class="buttondiv">
@@ -115,7 +116,7 @@
     const checkoutMessage = () => {
       messageParagraph.innerHTML = "Ability to checkout online is coming soon!"
     }
-    
+
     checkoutButton.addEventListener("click", (e) => {
       checkoutMessage()
     })

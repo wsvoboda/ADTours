@@ -67,10 +67,9 @@ app.get("/cart", async (req, res) => {
   const deviceID = req.cookies.device;
   const { data, error } = await supabase
     .from("Cart")
-    .select("tourName, quantity, unitPrice, total")
+    .select("id, tourName, quantity, unitPrice, total")
     .match({ deviceID: deviceID })
     .order("tourName", { ascending: true });
-  console.log(data);
   res.render("cart", { locals: { tours: data } });
 });
 
@@ -90,21 +89,14 @@ app.post("/tours", async (req, res) => {
   res.render("tours");
 });
 
-app.get("/cart-total", async (req, res) => {
-  priceObj = { prices: "" };
-  const deviceID = req.cookies.device;
+app.post("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
   const { data, error } = await supabase
     .from("Cart")
-    .select("unitPrice")
-    .match({ deviceID: deviceID });
-  if (data) {
-    for (price of data) {
-      priceObj.prices += price.unitPrice;
-    }
-    res.send(priceObj);
-  } else {
-    console.log(error);
-  }
+    .delete()
+    .match({ id: id });
+  res.redirect("/cart");
 });
 
 app.listen(PORT, () => {
