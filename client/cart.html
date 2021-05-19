@@ -122,8 +122,8 @@
       const data = await fetch("https://ad-tours.herokuapp.com/trip-total")
       const json = await data.json();
       const prices = json.priceString.split(" ").slice(0, -1)
-      let grandTotal = 0;
-      for (let i=0; i < prices.length; i++) {
+      var grandTotal = 0;
+      for (var i=0; i < prices.length; i++) {
         grandTotal += Number(prices[i])
       }
       grandTotalSpot.innerHTML = ("$ " + grandTotal)
