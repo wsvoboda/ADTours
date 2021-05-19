@@ -2,9 +2,8 @@
 
 Creating full-stack tour company website.
 
-🚧 [Under Construction](https://wsvoboda.github.io/ADTours/) _Link does not display site due to implementation of backend_ 🚧
+🚧 [Under Construction](https://ad-tours.herokuapp.com/)  🚧
 
 To do:
 
 - Span on shopping cart when things added
-- Host site
