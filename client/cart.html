@@ -123,7 +123,7 @@
     }
 
     const getGrandTotal = async () => {
-      const data = await fetch("http://localhost:3000/trip-total")
+      const data = await fetch("https://ad-tours.herokuapp.com/trip-total")
       const json = await data.json();
       const prices = json.priceString.split(" ").slice(0, -1)
       let grandTotal = 0;

@@ -33,7 +33,7 @@ app.use(
 app.use(cors());
 app.use(express.static(path.join(__dirname, "/client")));
 
-const PORT = 3000;
+const PORT = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   res.render("index");
