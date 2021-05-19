@@ -91,7 +91,6 @@ app.post("/tours", async (req, res) => {
 
 app.post("/delete/:id", async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const { data, error } = await supabase
     .from("Cart")
     .delete()

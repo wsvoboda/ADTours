@@ -77,17 +77,20 @@
                 <th scope="col">Quantity</th>
                 <th scope="col">Unit Price</th>
                 <th scope="col">Total</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 ${tours.map(tour =>`
                 <th scope="row">${tour.tourName}</th>
-                <td>${tour.quantity}<form action="/delete/${tour.id}" method="POST">
-                <button type="submit">Remove</button></form></td>
+                <td>${tour.quantity}</td>
                 <td class="unitPrice">$${tour.unitPrice}</td>
                 <td class="totalPrice">$${tour.total}</td>
-              </tr>`).join("")}
+                <td><form action="/delete/${tour.id}" method="POST">
+                  <button id="removebtn" class="btn btn-primary" type="submit">Remove</button></form></td>
+              </tr>
+              `).join("")}
               
             </tbody>
             

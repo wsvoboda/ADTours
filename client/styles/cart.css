@@ -38,3 +38,11 @@ nav {
   padding-top: 1%;
   text-align: center;
 }
+
+#removebtn {
+  height: 20px;
+  width: 50px;
+  font-size: 12px;
+  padding: 0 !important;
+  background-color: rgb(252, 74, 74) !important;
+}
