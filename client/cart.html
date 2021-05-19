@@ -94,7 +94,9 @@
               
             </tbody>
             
-          </table><p><strong>Grand Total</strong></p><p id="grandTotal">$3.50</p>
+          </table>
+          <p><strong>Grand Total</strong></p><strong><p id="grandTotalSpot"></p></strong>
+
         </div>
       </div>
       <div class="buttondiv">
@@ -104,7 +106,7 @@
                   Checkout
                 </button>
             </div>
-            <div class="message"><p class="messagep"></p></div>
+            <div class="message"><strong><p class="messagep"></strong></p></div>
     </main>
   </body>
   <script>
@@ -115,10 +117,23 @@
     const checkoutButton = document.querySelector("#checkoutbtn")
     const messageDiv = document.querySelector(".message")
     const messageParagraph = document.querySelector(".messagep")
-    const tripPrices = []
+    const grandTotalSpot = document.querySelector("#grandTotalSpot")
     const checkoutMessage = () => {
       messageParagraph.innerHTML = "Ability to checkout online is coming soon!"
     }
+
+    const getGrandTotal = async () => {
+      const data = await fetch("http://localhost:3000/trip-total")
+      const json = await data.json();
+      const prices = json.priceString.split(" ").slice(0, -1)
+      let grandTotal = 0;
+      for (let i=0; i < prices.length; i++) {
+        grandTotal += Number(prices[i])
+      }
+      grandTotalSpot.innerHTML = ("$ " + grandTotal)
+    }
+
+getGrandTotal()
 
     checkoutButton.addEventListener("click", (e) => {
       checkoutMessage()

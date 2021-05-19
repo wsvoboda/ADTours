@@ -70,6 +70,7 @@ app.get("/cart", async (req, res) => {
     .select("id, tourName, quantity, unitPrice, total")
     .match({ deviceID: deviceID })
     .order("tourName", { ascending: true });
+  console.log(data);
   res.render("cart", { locals: { tours: data } });
 });
 
@@ -108,6 +109,23 @@ app.post("/update/:id", async (req, res) => {
     .update({ quantity: newQuantity })
     .match({ id: id });
   res.redirect("/cart");
+});
+
+app.get("/trip-total", async (req, res) => {
+  priceObj = { priceString: "" };
+  const deviceID = req.cookies.device;
+  const { data, error } = await supabase
+    .from("Cart")
+    .select(`total`)
+    .match({ deviceID: deviceID });
+  if (data) {
+    for (object of data) {
+      priceObj.priceString += `${object.total} `;
+    }
+    res.send(priceObj);
+  } else {
+    console.log(error);
+  }
 });
 
 app.listen(PORT, () => {
