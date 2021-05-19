@@ -70,7 +70,7 @@
         <div class="main-container">
           <h1>Your Cart</h1>
           <div class="table-container">
-          <table class="table table-hover">
+          <table id="tours" class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">Tour Name</th>
@@ -84,15 +84,13 @@
                 ${tours.map(tour =>`
                 <th scope="row">${tour.tourName}</th>
                 <td>${tour.quantity}</td>
-                <td class="tourPrice">$${tour.unitPrice}</td>
-                <td class="tourPrice">$${tour.total}</td>
+                <td class="unitPrice">$${tour.unitPrice}</td>
+                <td class="totalPrice">$${tour.total}</td>
               </tr>`).join("")}
-              <tr><th scope="row"></th>
-                <td></td>
-                <td><strong>Grand Total</strong></td>
-              <td id="cartTotal">$3.50</td></tr>
+              
             </tbody>
-          </table>
+            
+          </table><p>Grand Total</p><p id="grandTotal">$3.50</p>
         </div>
       </div>
       <div class="buttondiv">
@@ -117,16 +115,9 @@
     const checkoutMessage = () => {
       messageParagraph.innerHTML = "Ability to checkout online is coming soon!"
     }
-
-const getPrices = async () => {
-const data = await fetch("localhost:3000/cart-total")
-const json = data.json
-console.log(json)
-}
     
     checkoutButton.addEventListener("click", (e) => {
-      getPrices()
-      // checkoutMessage()
+      checkoutMessage()
     })
   </script>
 </html>
