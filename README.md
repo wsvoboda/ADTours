@@ -6,5 +6,5 @@ Creating full-stack tour company website.
 
 To do:
 
-- Calculate total of trips in cart
+- Span on shopping cart when things added
 - Host site
