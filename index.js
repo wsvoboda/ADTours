@@ -70,7 +70,6 @@ app.get("/cart", async (req, res) => {
     .select("id, tourName, quantity, unitPrice, total")
     .match({ deviceID: deviceID })
     .order("tourName", { ascending: true });
-  console.log(data);
   res.render("cart", { locals: { tours: data } });
 });
 
@@ -102,11 +101,11 @@ app.post("/delete/:id", async (req, res) => {
 app.post("/update/:id", async (req, res) => {
   const { id } = req.params;
   const newQuantity = req.body.quantity;
-  console.log(newQuantity);
-  console.log(id);
+  const unitPrice = req.body.unitPrice;
+  const newTotal = Number(newQuantity) * Number(unitPrice);
   const { data, error } = await supabase
     .from("Cart")
-    .update({ quantity: newQuantity })
+    .update({ quantity: newQuantity, total: newTotal })
     .match({ id: id });
   res.redirect("/cart");
 });
