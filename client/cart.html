@@ -15,18 +15,6 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@200;400&display=swap"
       rel="stylesheet"
     />
-    <script>    
-      const getGrandTotal = async () => {
-      const data = await fetch("https://ad-tours.herokuapp.com/trip-total")
-      const json = await data.json();
-      const prices = json.priceString.split(" ").slice(0, -1)
-      let grandTotal = 0;
-      for (let i=0; i < prices.length; i++) {
-        grandTotal += Number(prices[i])
-      }
-      grandTotalSpot.innerHTML = ("$ " + grandTotal)
-    }
-    </script>
     <title>Cart</title>
   </head>
   <body>
@@ -128,6 +116,17 @@
     const grandTotalSpot = document.querySelector("#grandTotalSpot")
     const checkoutMessage = () => {
       messageParagraph.innerHTML = "Ability to checkout online is coming soon!"
+    }
+
+    const getGrandTotal = async () => {
+      const data = await fetch("https://ad-tours.herokuapp.com/trip-total")
+      const json = await data.json();
+      const prices = json.priceString.split(" ").slice(0, -1)
+      let grandTotal = 0;
+      for (let i=0; i < prices.length; i++) {
+        grandTotal += parseInt(prices[i])
+      }
+      grandTotalSpot.innerHTML = ("$ " + grandTotal)
     }
 
 getGrandTotal()
