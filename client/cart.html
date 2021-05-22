@@ -84,7 +84,7 @@
               <tr>
                 ${tours.map(tour =>`
                 <th scope="row">${tour.tourName}</th>
-                <td><form action="/update/${tour.id}" method="POST"><input name="quantity" type="number" value="${tour.quantity}" style="width: 35px"><input type="hidden" name="unitPrice" min="1" max="20" value="${tour.unitPrice}"><button id="updatebtn" class="btn btn-primary" type="submit">Update Qty</button></form></td>
+                <td><form action="/update/${tour.id}" method="POST"><input name="quantity" type="number" value="${tour.quantity}" style="width: 35px" min="1" max="20"><input type="hidden" name="unitPrice"  value="${tour.unitPrice}"><button id="updatebtn" class="btn btn-primary" type="submit">Update Qty</button></form></td>
                 <td class="unitPrice">$${tour.unitPrice}</td>
                 <td class="totalPrice">$${tour.total}</td>
                 <td><form action="/delete/${tour.id}" method="POST">
