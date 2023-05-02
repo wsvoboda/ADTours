@@ -2,8 +2,6 @@
 
 This is a full stack multi-page website for a tour company in the Dominican Republic. 
 
-It is hosted [here](https://ad-tours.herokuapp.com/).
-
 The front end portion of this site was created using HTML, CSS, and JavaScript. The styling was done using Bootstrap. 
 
 The back end uses express, Node, and Supabase.
